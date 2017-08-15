@@ -10,7 +10,7 @@ if (document && document.location) {
   }
 }
 
-var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+var $fh = require("../../src/feedhenry");
 
 describe("test push wrapper", function() {
 

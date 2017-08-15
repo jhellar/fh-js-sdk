@@ -10,8 +10,8 @@ if(document && document.location){
   }
 }
 
-var ajax = process.env.LIB_COV? require("../../src-cov/modules/ajax") : require("../../src/modules/ajax");
-var qs = process.env.LIB_COV? require("../../src-cov/modules/queryMap"): require("../../src/modules/queryMap");
+var ajax = require("../../src/modules/ajax");
+var qs = require("../../src/modules/queryMap");
 
 chai.use(sinonChai);
 
@@ -64,7 +64,7 @@ describe("test all cloud related GETs", function(){
     var success = sinon.spy();
     var fail = sinon.spy();
 
-    var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+    var $fh = require("../../src/feedhenry");
 
     $fh.reset();
     $fh.cloud({

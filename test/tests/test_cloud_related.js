@@ -9,8 +9,8 @@ if(document && document.location){
   }
 }
 
-var ajax = process.env.LIB_COV? require("../../src-cov/modules/ajax") : require("../../src/modules/ajax");
-var qs = process.env.LIB_COV? require("../../src-cov/modules/queryMap"): require("../../src/modules/queryMap");
+var ajax = require("../../src/modules/ajax");
+var qs = require("../../src/modules/queryMap");
 
 chai.use(sinonChai);
 
@@ -68,7 +68,7 @@ describe("test all cloud related", function(){
       var cb2 = sinon.spy();
 
       initFakeServer(server);
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       //at this point, $fh is already initialised (and failed), it will not emit another fhinit event 
       //until another call to any $fh cloud APIs, so for testing, call reset which will force it to re-intialise again.
       $fh.reset();
@@ -110,7 +110,7 @@ describe("test all cloud related", function(){
 
       server.respondWith('POST', /cloud\/echo/, buildFakeRes(data));
 
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       $fh.reset();
 
       $fh.fh_timeout = 30000;
@@ -143,7 +143,7 @@ describe("test all cloud related", function(){
 
       server.respondWith('POST', /test\/echo/, buildFakeRes(data));
 
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       $fh.reset();
 
       $fh.cloud({
@@ -167,7 +167,7 @@ describe("test all cloud related", function(){
       server.respondWith('POST', /authpolicy\/auth/, buildFakeRes({status: "ok", sessionToken: 'testSessionToken'}));
       server.respondWith('POST', /authpolicy\/verifysession/, buildFakeRes({status:"ok", isValid: true}));
 
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       $fh.reset();
 
       var success = sinon.spy();
@@ -208,7 +208,7 @@ describe("test all cloud related", function(){
       initFakeServer(server);
       server.respondWith('POST', /mbaas\/forms/, buildFakeRes({"status": "ok"}));
 
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       $fh.reset();
 
       var success = sinon.spy();

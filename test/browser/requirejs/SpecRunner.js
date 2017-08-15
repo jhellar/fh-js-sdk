@@ -12,6 +12,8 @@ require.config({
  
 require(['require', 'chai', 'sinon', 'mocha', 'sinonChai', 'feedhenry'], function(require, chai, sinon, mocha, sinonChai, feedhenry){
 
+  window.initMochaPhantomJS();
+
   /*globals mocha */
   window.mocha.setup('bdd');
  

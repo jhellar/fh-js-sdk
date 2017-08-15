@@ -10,7 +10,7 @@ if(document && document.location){
   }
 }
 
-var qs = process.env.LIB_COV? require("../../src-cov/modules/queryMap"): require("../../src/modules/queryMap");
+var qs = require("../../src/modules/queryMap");
 
 var fhconfig = {
   "host": "http://localhost:8100",
@@ -64,10 +64,11 @@ describe("test legacy app props/app init", function(){
       var callback = sinon.spy();
 
       initFakeServer(server);
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
 
       $fh.reset();
 
+      console.log('FH INIT');
       $fh.init({}, callback);
       server.respond();
       server.respond();
@@ -87,7 +88,7 @@ describe("test legacy app props/app init", function(){
       var callback = sinon.spy();
 
       initFakeServer(server);
-      var $fh = process.env.LIB_COV? require("../../src-cov/feedhenry") : require("../../src/feedhenry");
+      var $fh = require("../../src/feedhenry");
       
       $fh.reset();
 

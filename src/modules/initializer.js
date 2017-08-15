@@ -81,7 +81,7 @@ var loadCloudProps = function(app_props, callback) {
         if (req) {
           errormsg = req.status + " - " + req.responseText;
         }
-        logger.error("App init returned error : " + errormsg);
+        // logger.error("App init returned error : " + errormsg);
         //use the cached host if we have a copy
         if (savedHost && req.status !== 400) {
           logger.info("Using cached host: " + JSON.stringify(savedHost));
@@ -94,7 +94,7 @@ var loadCloudProps = function(app_props, callback) {
           if (req.status === 400) {
             logger.error(req.responseText);
           } else {
-            logger.error("No cached host found. Init failed.");
+            // logger.error("No cached host found. Init failed.");
           }
           handleError(function(msg, err) {
             if (callback) {

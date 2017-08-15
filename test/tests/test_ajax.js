@@ -10,8 +10,8 @@ if(document && document.location){
   }
 }
 
-var ajax = process.env.LIB_COV? require("../../src-cov/modules/ajax") : require("../../src/modules/ajax");
-var events = process.env.LIB_COV? require("../../src-cov/modules/events") : require("../../src/modules/events");
+var ajax = require("../../src/modules/ajax");
+var events = require("../../src/modules/events");
 
 
 describe("test ajax module", function(){

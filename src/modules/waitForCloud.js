@@ -88,7 +88,7 @@ var reset = function(){
 ready(function(error, host){
   if(error){
     if(error.message !== "app_config_missing"){
-      logger.error("Failed to initialise fh.");
+      // logger.error("Failed to initialise fh.");
     } else {
       logger.info("No fh config file");
     }

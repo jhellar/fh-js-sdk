@@ -24,7 +24,7 @@ appForm.utils = function(module) {
     }
     //convert a file object to base64 encoded.
     function fileToBase64(file, cb) {
-        if (!file instanceof File) {
+        if (!(file instanceof File)) {
             return cb('Only file object can be used for converting');
         }
         var fileReader = new FileReader();
